@@ -1,13 +1,25 @@
+import { useState, useEffect } from "react";
+import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
 
 function Blueprints({ BlueprintData }:any) {
+console.log(BlueprintData)
+const navigate = useNavigate();
 
-  return (
+return (
     <section className='blueprintDisplayer'>
       <div> 
+        
         We'll make some blueprints show up here!
         <p /> 
+        {BlueprintData?.nodes?.map((node: any) => (
+        <div className="Blueprint Names" key={node.id}>
+          <p className="idVal" onClick={()=> navigate(`/nodes/${node.data.name}`)}>
+            {JSON.stringify(node.data.name)}
+          </p>
+        </div>
 
-        {JSON.stringify(BlueprintData)}
+        ))}
+
          </div>
     
     </section>
@@ -15,12 +27,3 @@ function Blueprints({ BlueprintData }:any) {
 }
 
 export default Blueprints;
-
-
-
-// TODO: render blueprints as forms
-// define each form as a different route/link, with default values based on parent node (if applicable)
-// create menu to display possible prefill data based on forms filled for any direct parent node
-// as well as any indirect parent nodes and global data.
-// Any new forms/data added to the mock server data
-// should appear as options in the menu without needing to be manually added.

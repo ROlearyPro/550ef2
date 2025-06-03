@@ -9,6 +9,8 @@ declare global {
   namespace JSX {
     interface IntrinsicElements {
       blueprintData: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+      blueprints: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+
     }
   }
 }
