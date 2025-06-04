@@ -4,8 +4,10 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "es5"
     ],
+    "types":["cypress", "node"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -22,6 +24,6 @@
     "noImplicitAny": false
   },
   "include": [
-    "src"
+    "src", "**/*.ts"
   ]
 }

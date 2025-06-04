@@ -52,6 +52,10 @@
     ]
   },
   "devDependencies": {
-    "ajv": "^7.2.4"
+    "@cypress/react": "^9.0.1",
+    "@cypress/webpack-dev-server": "^4.1.0",
+    "@types/testing-library__cypress": "^5.0.13",
+    "ajv": "^7.2.4",
+    "cypress": "^14.4.1"
   }
 }
