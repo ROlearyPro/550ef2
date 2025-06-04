@@ -27,3 +27,6 @@ Simply put, to add new or more data sources, one can either change the data incl
 ### `Tests`
 
 Currently, there are only a few tests, both due to the limited amount of time this challenge required and the fact that the current data the server gives us to render is pretty basic. If there were more dynamic components, more tests could be made, but as is, these cover the basics.
+
+### `Video link`
+[text](https://youtu.be/zlvyK62Gs6M)
