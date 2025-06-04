@@ -17,7 +17,6 @@ describe('Basic tests for the blueprints file', () => {
     cy.get('.form-7c26f280-7bff-40e3-b9a5-0533136f52c3').should('have.text', "\"Form C\"")
     cy.get('.form-a4750667-d774-40fb-9b0a-44f8539ff6c4').should('have.text', "\"Form B\"")
     cy.get('.form-e15d42df-c7c0-4819-9391-53730e6d47b3').should('have.text', "\"Form E\"")
-
     cy.get('.form-0f58384c-4966-4ce6-9ec2-40b96d61f745').should('not.have.text', "\"Form R\"")
 
   })

@@ -1,46 +1,29 @@
-# Getting Started with Create React App
+Setup:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+In the project directory, run: npx create-react-app my-app in order to install react.
+Run: npm install typescript --save-dev in order to install typescript.
+Run: npm install cypress --save-dev in order to install cypress.
+Run: npm install @jsonforms/core @jsonforms/react @jsonforms/material-renderers @mui/material to install JSONForms.
+Run: npm install @emotion/react @emotion/styled @mui/icons-material @mui/x-date-pickers @mui/material dayjs to install MUI and Emotion packages.
 
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You should open the challenge server first, and type y when asked to open on a different port.
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+### `npx cypress open`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs cypress, which will allow you to test based on the e2e specs included. You will need to have both the server and the application running when you run cypress.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## `Adding new data sources`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Simply put, to add new or more data sources, one can either change the data included in the challenge server this connects to, or change the fetch in App.tsx to take in other sources of data. This can be done dynamically, as seen with the APICalls.tsx and .env.development files I threw together as an example. In either case, one would likely have to alter the tests to account for the new information, if it replaces/alters existing data on the challenge server. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Tests`
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Currently, there are only a few tests, both due to the limited amount of time this challenge required and the fact that the current data the server gives us to render is pretty basic. If there were more dynamic components, more tests could be made, but as is, these cover the basics.
