@@ -1,27 +1,22 @@
-import { useState, useEffect } from "react";
-import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
-function Blueprints({ BlueprintData }:any) {
-console.log(BlueprintData)
-const navigate = useNavigate();
+function Blueprints({BlueprintData}: any) {
+  console.log(BlueprintData)
+  const navigate = useNavigate();
 
-return (
+  return (
     <section className='blueprintDisplayer'>
-      <div> 
-        
-        We'll make some blueprints show up here!
-        <p /> 
+      <div>
+        We'll display the different form options here.
+        <p />
         {BlueprintData?.nodes?.map((node: any) => (
-        <div className="Blueprint Names" key={node.id}>
-          <p className="idVal" onClick={()=> navigate(`/nodes/${node.data.name}`)}>
-            {JSON.stringify(node.data.name)}
-          </p>
-        </div>
-
+          <div className="Blueprint Names" key={node.id}>
+            <p className={node.id} onClick={() => navigate(`/nodes/${node.data.name}`)}>
+              {JSON.stringify(node.data.name)}
+            </p>
+          </div>
         ))}
-
-         </div>
-    
+      </div>
     </section>
   );
 }

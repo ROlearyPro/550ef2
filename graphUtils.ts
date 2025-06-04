@@ -7,7 +7,7 @@ export interface NodeDataShape {
 export interface NodeType {
   id: string;
   data: NodeDataShape;
-  // (we don’t need type/position here for merging, only `id` and `data`)
+  // we don’t need type or position here for merging, only `id` and `data`
 }
 
 export interface EdgeType {
@@ -16,12 +16,12 @@ export interface EdgeType {
 }
 
 /**
- * Returns a single object containing all ancestor‐node “data” fields,
- * merged in order from root→down, so that closer ancestors override farther ones.
- *
- * @param nodeId   the id of the node whose ancestors we want
- * @param nodes    array of all nodes, each with { id, data }
- * @param edges    array of all edges, each with { source, target }
+  Returns a single object containing all ancestor‐node “data” fields,
+  merged in order from root→down, so that closer ancestors override farther ones.
+ 
+  @param nodeId   the id of the node whose ancestors we want
+  @param nodes    array of the nodes, each with { id, data }
+  @param edges    array of the edges, each with { source, target }
  */
 export function getAncestorData(
   nodeId: string,
@@ -29,8 +29,8 @@ export function getAncestorData(
   edges: EdgeType[]
 ): NodeDataShape {
   const visited = new Set<string>();
-  // We’ll collect all data objects from this node itself AND its ancestors.
-  // Later we merge in reverse order so that "closest" ancestors override.
+  // We’ll collect each data objects from this node itself AND its ancestors.
+  // Later we'll merge in reverse order so that "closest" ancestors override.
   const collected: NodeDataShape[] = [];
 
   function dfs(currentId: string) {
@@ -58,9 +58,6 @@ export function getAncestorData(
   dfs(nodeId);
 
   // `collected` is [ thisNode.data, parent1.data, parent2.data, ..., root.data ]
-  // We want to merge “root→…→thisNode” so that close ancestors override:
-  //   merged = Object.assign({}, root.data, ..., parent.data, thisNode.data)
-  // Since `collected` is pushed in DFS order, it’s [thisNode, its parents…, root],
-  // so reverse it and spread into assign:
+  // Pushed in depth first search order, so reverse it and spread into assign:
   return Object.assign({}, ...collected.slice().reverse());
 }

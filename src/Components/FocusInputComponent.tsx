@@ -10,6 +10,7 @@ const FocusInputComponent = ({ data, handleChange, path, schema, clickedField, s
     }
   }, [clickedField, path]);
 
+  // Makes sure you can still type in the clicked empty form, even after the modal opens up.
   return (
     <TextField
       inputRef={inputRef}
